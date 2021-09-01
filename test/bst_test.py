@@ -1,7 +1,6 @@
 from testfixtures import LogCapture
 
-from search.bst import Bst, Node, StdOutVisitor, DepthVisitor, DeepestVisitor, DeepestOutputVisitor
-from pprint import pprint
+from search.bst import Bst, Node, StdOutVisitor, DepthVisitor, DeepestVisitor, DeepestOutputVisitor, SearchVisitor
 
 # def foo_test():
 #     assert 1 == 1
@@ -40,6 +39,9 @@ def depth_visitor_two_test():
 def depth_visitor_three_test():
     assert Bst(12,13,14).visit(DepthVisitor()) == '(None) 12;0 ((None) 13;1 ((None) 14;2 (None)))'
 
+def depth_visitor_insert_test():
+    assert Bst(12,13).insert(14).visit(DepthVisitor()) == '(None) 12;0 ((None) 13;1 ((None) 14;2 (None)))'
+
 def depth_visitor_three_test():
     assert Bst(12,11,90,82,7,9).visit(DepthVisitor()) == \
         '(((None) 7;2 ((None) 9;3 (None))) 11;1 (None)) 12;0 (((None) 82;2 (None)) 90;1 (None))'
@@ -54,6 +56,21 @@ def deepest_visitor_one_test():
 
 def deepest_output_test():
     assert Bst(12,11,90,82,7,9).visit(DeepestOutputVisitor()) == 'deepest, 9; depth, 3'
+
+def search_visitor_test():
+    assert Bst(12,11,90,82,7,9).visit(SearchVisitor(), 90) == 90
+
+def bst_search_test():
+    assert Bst(12,11,90,82,7,9).search(90) == 90
+
+def empty_test():
+    assert Bst().visit(StdOutVisitor()) == '(None) None (None)'
+
+def duplicate_keys_test():
+    assert Bst(1, 1).visit(StdOutVisitor()) == '(None) 1 (None)'
+
+def float_test():
+    assert Bst(2.0, 1.0, 3.0).visit(StdOutVisitor()) == '((None) 1.0 (None)) 2.0 ((None) 3.0 (None))'
 
 # def bst_log_test():
 #     with LogCapture() as l:

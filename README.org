@@ -20,22 +20,29 @@
 *** TODO Conciseness - does your solution balance clarity and brevity?
 *** TODO Maintainability - does your code stand up to changing needs?
 *** TODO Anti-patterns - does your solution avoid anti-patterns?
+**** TODO Which ones?
 
 ** Testing
 
    #+begin_src shell
      docker-compose up
    #+end_src
+
+   Test coverage report:
+   
+   #+begin_src shell
+     open ./cover/index.html
+   #+end_src
    
 ** Tasks
-*** TODO local repo
+*** DONE local repo
 *** TODO Github repo
-*** TODO Insert w/duplicate
 *** TODO Check input for correctness
-*** TODO Edge case - empty tree
-*** TODO Edge case - duplicate numbers
-*** TODO Use key/value in tree
-*** TODO Search for element
+*** DONE Insert w/duplicate
+*** DONE Edge case - empty tree
+*** DONE Edge case - duplicate numbers
+*** DONE Use key/value in tree
+*** DONE Search for element
 *** DONE Insert wo/duplicate
 *** DONE Dockerfile
 *** DONE README
@@ -50,5 +57,5 @@
 *** DONE Visitor - stdout
 *** DONE Visitor - depth
 *** DONE Visitor - deepest
+*** DONE Visitor - search
 *** WAIT Delete node
-*** WAIT Pass in compare function
