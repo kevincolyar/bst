@@ -1,0 +1,54 @@
+* Code challenge - BST
+** Summary
+   
+   Your company needs you to implement a Binary Search Tree (BST), using the language of your choice.
+   Your solution will be utilized by several different teams throughout your organization.
+   Initially, this BST only needs to support integers. 
+   
+** Requirements:
+   
+   + The BST must be built from a list of integers.
+   + Implement a method that returns the deepest nodes in the BST along with their depth
+   
+** Example:
+   
+   Input: 12,11,90,82,7,9
+   Output: deepest, 9; depth, 3
+  
+** What we are looking for:
+*** TODO Correctness - will your solution produce the desired results?
+*** TODO Conciseness - does your solution balance clarity and brevity?
+*** TODO Maintainability - does your code stand up to changing needs?
+*** TODO Anti-patterns - does your solution avoid anti-patterns?
+
+** Testing
+
+   #+begin_src shell
+     docker-compose up
+   #+end_src
+   
+** Tasks
+*** TODO local repo
+*** TODO Github repo
+*** TODO Insert w/duplicate
+*** TODO Check input for correctness
+*** TODO Edge case - empty tree
+*** TODO Edge case - duplicate numbers
+*** TODO Use key/value in tree
+*** TODO Search for element
+*** DONE Insert wo/duplicate
+*** DONE Dockerfile
+*** DONE README
+*** DONE Tests setup
+*** DONE Input variable number of integers
+*** DONE Logging
+*** DONE Node class
+*** DONE Output depth
+*** DONE Output deepest nodes
+*** DONE Construct
+*** DONE Insert 
+*** DONE Visitor - stdout
+*** DONE Visitor - depth
+*** DONE Visitor - deepest
+*** WAIT Delete node
+*** WAIT Pass in compare function
