@@ -7,8 +7,8 @@
    
 ** Requirements:
    
-   + The BST must be built from a list of integers.
-   + Implement a method that returns the deepest nodes in the BST along with their depth
+*** DONE The BST must be built from a list of integers.
+*** DONE Implement a method that returns the deepest nodes in the BST along with their depth
    
 ** Example:
    
@@ -16,11 +16,10 @@
    Output: deepest, 9; depth, 3
   
 ** What we are looking for:
-*** TODO Correctness - will your solution produce the desired results?
-*** TODO Conciseness - does your solution balance clarity and brevity?
-*** TODO Maintainability - does your code stand up to changing needs?
-*** TODO Anti-patterns - does your solution avoid anti-patterns?
-**** TODO Which ones?
+*** DONE Correctness - will your solution produce the desired results?
+*** DONE Conciseness - does your solution balance clarity and brevity?
+*** DONE Maintainability - does your code stand up to changing needs?
+*** DONE Anti-patterns - does your solution avoid anti-patterns?
 
 ** Testing
 
@@ -36,8 +35,7 @@
    
 ** Tasks
 *** DONE local repo
-*** TODO Github repo
-*** TODO Check input for correctness
+*** DONE Github repo
 *** DONE Insert w/duplicate
 *** DONE Edge case - empty tree
 *** DONE Edge case - duplicate numbers

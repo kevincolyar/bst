@@ -1,7 +1,3 @@
-import logging
-
-logger = logging.getLogger(__name__)
-
 class Bst:
     def __init__(self, *args):
         """ Create initial binary search tree of comparable items"""
@@ -23,6 +19,10 @@ class Bst:
     def search(self, key):
         """ Searches BST with given key, returning None if not found. """
         return SearchVisitor().visit(self.root, key)
+
+    def deepest(self):
+        """ Outputs the deepest nodes in the BST, along with the depth"""
+        return DeepestOutputVisitor().visit(self.root)
 
 class Node:
     def __init__(self):
@@ -48,46 +48,49 @@ class Node:
 
         return self
 
-class StdOutVisitor:
-    def visit(self, node):
-        if not node: return
-
-        left  = self.visit(node.left)
-        right = self.visit(node.right)
-
-        return f'({left}) {node.value} ({right})'
-
 class DepthVisitor:
+    """ Visitor that returns a descriptive string of tree """
     def visit(self, node, depth=0):
         if not node: return
 
         left  = self.visit(node.left,  depth+1)
         right = self.visit(node.right, depth+1)
 
-        return f'({left}) {node.value};{depth} ({right})'
+        return f'({left}) {node.value}:{depth} ({right})'
 
 class DeepestVisitor:
-    def visit(self, node, depth=0, memo={}):
-        if not node: return memo
+    """ Visitor that returns a dict of values grouped by depth """
+    def visit(self, node, depth=0, memo=None):
+        # TODO: Ideally this would be a default argument, but python caches mutable default arguments (?)
+        if memo is None:
+            memo = {}
+
+        if not node:
+            return memo
 
         left  = self.visit(node.left,  depth+1, memo)
         right = self.visit(node.right, depth+1, memo)
 
-        if depth not in memo: memo[depth] = []
+        # Initialize depth collection if needed
+        if depth not in memo:
+            memo[depth] = []
 
+        # Group node values by depth
         memo[depth].append(node.value)
 
         return memo
 
 class DeepestOutputVisitor:
+    """ Visitor that returns a string describing deepest nodes and depth """
     def visit(self, node):
         memo = DeepestVisitor().visit(node)
-        depth = sorted(memo.keys())[-1]
-        deepest = ', '.join({str(i) for i in memo[depth]})
+        depth = max(memo.keys())
+        deepest = ','.join(str(i) for i in memo[depth])
 
         return f'deepest, {deepest}; depth, {depth}'
 
 class SearchVisitor:
+    """ Visitor that searches the tree for the given key, returning the node's value, or None if not found """
     def visit(self, node, key):
         if not node: return None
 
